@@ -27,11 +27,17 @@ public class RecyclerViewFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
+
+
     private int position;
 
     private static final int ITEM_COUNT = 100;
 
     private List<Board> mContentItems = new ArrayList<>();
+
+
+    private List<String> mContentItems2 = new ArrayList<String>();
+
 
     public static RecyclerViewFragment newInstance(int position) {
         return new RecyclerViewFragment(position);
@@ -56,21 +62,31 @@ public class RecyclerViewFragment extends Fragment {
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setHasFixedSize(true);
 
+
         mAdapter = new RecyclerViewMaterialAdapter(new TestRecyclerViewAdapter(mContentItems, getActivity().getApplicationContext()));
         mRecyclerView.setAdapter(mAdapter);
 
+
+
         {
+
             for (int i = 0; i < ITEM_COUNT; ++i) {
                 if (position == 0)
                     mContentItems.add(new Board("", "", "http://i.cdn.turner.com/cnn/2011/HEALTH/01/06/child.hospital.ep/t1larg.hospital.child.ts.jpg"));
+
+
                 else if (position == 1)
                     mContentItems.add(new Board("bbb", "bbb", "http://cdn.kidspot.com.au/wp-content/uploads/2013/12/HospitalChild_happy-600x420.jpg"));
+
+
                 else if (position == 2)
                     mContentItems.add(new Board("ccc", "ccc", "http://us.123rf.com/450wm/outsiderzone/outsiderzone1009/outsiderzone100900129/7815322-sick-child-in-hospital-fever-and-flu.jpg?ver=6"));
             }
             mAdapter.notifyDataSetChanged();
 
         }
+
+
 
         MaterialViewPagerHelper.registerRecyclerView(getActivity(), mRecyclerView, null);
     }

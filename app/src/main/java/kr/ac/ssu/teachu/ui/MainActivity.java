@@ -74,11 +74,11 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnFr
             public CharSequence getPageTitle(int position) {
                 switch (position % 3) {
                     case 0:
-                        return getText(R.string.main_pager_one);
+                        return "스케줄러";
                     case 1:
-                        return getText(R.string.main_pager_two);
+                        return "공지사항";
                     case 2:
-                        return getText(R.string.main_pager_three);
+                        return "뉴스";
                 }
                 return null;
             }
@@ -91,15 +91,15 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnFr
                     case 0:
                         return HeaderDesign.fromColorResAndDrawable(
                                 R.color.colorPrimary,
-                                ContextCompat.getDrawable(getBaseContext(), R.drawable.story));
+                                ContextCompat.getDrawable(getBaseContext(), R.drawable.schedule2));
                     case 1:
                         return HeaderDesign.fromColorResAndDrawable(
                                 R.color.colorPrimary,
-                                ContextCompat.getDrawable(getBaseContext(), R.drawable.thanks));
+                                ContextCompat.getDrawable(getBaseContext(), R.drawable.noti3));
                     case 2:
                         return HeaderDesign.fromColorResAndDrawable(
                                 R.color.colorPrimary,
-                                ContextCompat.getDrawable(getBaseContext(), R.drawable.love));
+                                ContextCompat.getDrawable(getBaseContext(), R.drawable.news2));
                 }
                 return null;
             }
@@ -133,8 +133,8 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnFr
 
                 switch (menuItem.getItemId()) {
                     case R.id.nav_blooldonate:
-                        Toast.makeText(getApplicationContext(), "헌혈증 관리", Toast.LENGTH_SHORT).show();
-                        //showHome();
+                        //Intent obj = new Intent(MainActivity.this,Student_Management.class);
+                        //obj.putExtra("1!","")
                         break;
 
                     case R.id.nav_survey:
