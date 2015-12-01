@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/nav_blooldonate"
+            android:checked="true"
+            android:icon="@drawable/mgcard"
+            android:title="헌혈증 관리" />
+        <item
+            android:id="@+id/nav_survey"
+            android:checked="true"
+            android:icon="@drawable/diagnosis"
+            android:title="전자문진" />
+        <item
+            android:id="@+id/nav_bloodhome"
+            android:checked="true"
+            android:icon="@drawable/place"
+            android:title="가까운 헌혈의 집" />
+        <item
+            android:id="@+id/nav_schedule"
+            android:checked="true"
+            android:icon="@drawable/schedule"
+            android:title="헌혈 스케쥴 관리" />
+        <item
+            android:id="@+id/nav_history"
+            android:checked="true"
+            android:icon="@drawable/history"
+            android:title="기부히스토리" />
+    </group>
+
+    <item android:title="계정 및 설정">
+        <menu>
+            <item
+                android:id="@+id/nav_account"
+                android:checked="true"
+                android:icon="@drawable/ic_account_box_black_24dp"
+                android:title="로그인" />
+            <item
+                android:id="@+id/nav_setting"
+                android:checked="true"
+                android:icon="@drawable/ic_settings_applications_black_24dp"
+                android:title="설정" />
+        </menu>
+    </item>
+
+</menu>
