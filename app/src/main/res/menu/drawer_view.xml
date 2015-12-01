@@ -12,6 +12,7 @@
             android:checked="true"
             android:icon="@drawable/diagnosis"
             android:title="게시판관리" />
+
     </group>
 
     <item android:title="계정 및 설정">

@@ -130,6 +130,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnFr
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem)
             {
+
                 switch (menuItem.getItemId()) {
                     case R.id.nav_blooldonate:
                         Toast.makeText(getApplicationContext(), "헌혈증 관리", Toast.LENGTH_SHORT).show();
