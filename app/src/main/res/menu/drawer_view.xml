@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/nav_blooldonate"
+            android:checked="true"
+            android:icon="@drawable/mgcard"
+            android:title="학생관리" />
+        <item
+            android:id="@+id/nav_survey"
+            android:checked="true"
+            android:icon="@drawable/diagnosis"
+            android:title="게시판관리" />
+    </group>
+
+    <item android:title="계정 및 설정">
+        <menu>
+            <item
+                android:id="@+id/nav_account"
+                android:checked="true"
+                android:icon="@drawable/ic_account_box_black_24dp"
+                android:title="로그인" />
+            <item
+                android:id="@+id/nav_setting"
+                android:checked="true"
+                android:icon="@drawable/ic_settings_applications_black_24dp"
+                android:title="설정" />
+        </menu>
+    </item>
+
+</menu>
