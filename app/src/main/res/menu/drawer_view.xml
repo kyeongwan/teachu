@@ -3,14 +3,14 @@
 
     <group android:checkableBehavior="none">
         <item
-            android:id="@+id/nav_blooldonate"
+            android:id="@+id/nav_student_manage"
             android:checked="true"
-            android:icon="@drawable/mgcard"
+            android:icon="@drawable/student_manage"
             android:title="학생관리" />
         <item
-            android:id="@+id/nav_survey"
+            android:id="@+id/nav_board_manage"
             android:checked="true"
-            android:icon="@drawable/diagnosis"
+            android:icon="@drawable/board_manage"
             android:title="게시판관리" />
 
     </group>
@@ -18,10 +18,10 @@
     <item android:title="계정 및 설정">
         <menu>
             <item
-                android:id="@+id/nav_account"
+                android:id="@+id/nav_logout"
                 android:checked="true"
                 android:icon="@drawable/ic_account_box_black_24dp"
-                android:title="로그인" />
+                android:title="로그아웃" />
             <item
                 android:id="@+id/nav_setting"
                 android:checked="true"

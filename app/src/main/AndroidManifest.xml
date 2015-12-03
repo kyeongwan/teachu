@@ -29,6 +29,11 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
+
+        /* intent 관련 */
+        <activity android:name=".ui.StudentManageUI"/>
+        <activity android:name=".ui.BoardManageUI"/>
+
         <activity
             android:name=".ui.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">

@@ -132,32 +132,25 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnFr
             {
 
                 switch (menuItem.getItemId()) {
-                    case R.id.nav_blooldonate:
-                        //Intent obj = new Intent(MainActivity.this,Student_Management.class);
-                        //obj.putExtra("1!","")
+                    case R.id.nav_board_manage: //게시판관리
+                        Toast.makeText(getApplicationContext(),"게시판관리로 이동합니다",Toast.LENGTH_LONG).show();
+                        Intent obj1 = new Intent(MainActivity.this,BoardManageUI.class);
+                        startActivity(obj1);
                         break;
 
-                    case R.id.nav_survey:
-                        Toast.makeText(getApplicationContext(),"전자문진",Toast.LENGTH_SHORT).show();
-                        Uri uri = Uri.parse("https://bloodinfo.net/emi_bldqualify.do?action=emiPopup");
-                        Intent it  = new Intent(Intent.ACTION_VIEW,uri);
-                        startActivity(it);
+                    case R.id.nav_student_manage: //학생관리
+                        Toast.makeText(getApplicationContext(),"학생관리로 이동합니다",Toast.LENGTH_SHORT).show();
+                        Intent obj2=new Intent(MainActivity.this,StudentManageUI.class);
+                        startActivity(obj2);
                         //showSche(getResources().getText(R.string.all_schedule));
                         break;
 
-                    case R.id.nav_account:
-//                        if (DeviewSchedApplication.LOGIN_STATE) {
-//                            LoginManager.getInstance().logOut();
-//                            resetUserInfo();
-//                            Toast.makeText(getBaseContext(), getText(R.string.logout_msg), Toast.LENGTH_LONG).show();
-//
-//                            return true;
-//                        }
-                        //showAccount();
+                    case R.id.nav_logout:
+                          Toast.makeText(getApplicationContext(),"로그아웃 해주세요",Toast.LENGTH_SHORT).show();
                         break;
 
                     case R.id.nav_setting:
-                        //showSetting();
+                        Toast.makeText(getApplicationContext(),"옵션 바꿔주세요",Toast.LENGTH_SHORT).show();
                         break;
                 }
                 menuItem.setChecked(true);
