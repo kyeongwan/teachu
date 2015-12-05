@@ -19,6 +19,7 @@ import java.util.List;
 
 import kr.ac.ssu.teachu.R;
 import kr.ac.ssu.teachu.model.Board;
+import kr.ac.ssu.teachu.model.schedule;
 
 
 /**
@@ -35,7 +36,7 @@ public class RecyclerViewFragment extends Fragment {
     private static final int ITEM_COUNT = 1;
 
     private List<Board> mContentItems = new ArrayList<>();
-
+    private List<schedule> mScheduleItems = new ArrayList<>();
 
 
     public static RecyclerViewFragment newInstance(int position) {
@@ -62,7 +63,7 @@ public class RecyclerViewFragment extends Fragment {
         mRecyclerView.setHasFixedSize(true);
 
 
-        mAdapter = new RecyclerViewMaterialAdapter(new TestRecyclerViewAdapter(mContentItems, getActivity().getApplicationContext()));
+        mAdapter = new RecyclerViewMaterialAdapter(new TestRecyclerViewAdapter(mContentItems, mScheduleItems, getActivity().getApplicationContext()));
         mRecyclerView.setAdapter(mAdapter);
 
 
@@ -71,7 +72,9 @@ public class RecyclerViewFragment extends Fragment {
 
             for (int i = 0; i < ITEM_COUNT; ++i) {
                 if (position == 0)
-                    mContentItems.add(new Board("", "", "http://i.cdn.turner.com/cnn/2011/HEALTH/01/06/child.hospital.ep/t1larg.hospital.child.ts.jpg"));
+                {
+                    mScheduleItems.add(new schedule("밥먹기"));
+                }
 
 
                 else if (position == 1)
