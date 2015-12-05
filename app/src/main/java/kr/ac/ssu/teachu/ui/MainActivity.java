@@ -22,7 +22,10 @@ import android.widget.Toast;
 import com.github.florent37.materialviewpager.MaterialViewPager;
 import com.github.florent37.materialviewpager.header.HeaderDesign;
 
+import java.util.Random;
+
 import kr.ac.ssu.teachu.R;
+import kr.ac.ssu.teachu.model.Board;
 
 /**
  * Created by lk on 15. 12. 1..
@@ -49,6 +52,21 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnFr
         initMaterialViewPager();
         initToolbar();
         initNavigationView();
+    }
+    public void news_onclick(View view)
+    {
+        TextView tv=(TextView)view;
+        Intent obj1=new Intent(Intent.ACTION_VIEW,Uri.parse("http://www.yeongnam.com/mnews/newsview.do?mode=newsView&newskey=20151130.010190825110001"));
+        Intent obj2=new Intent(Intent.ACTION_VIEW,Uri.parse("http://www.yeongnam.com/edu/newsview.do?mode=newsView&newskey=20151123.010170758550001"));
+        Intent obj3=new Intent(Intent.ACTION_VIEW,Uri.parse("http://www.yeongnam.com/edu/newsview.do?mode=newsView&newskey=20151130.010160756070001"));
+        Random rand=new Random();
+        int num=rand.nextInt(3);
+        if(num==0)
+            startActivity(obj1);
+        else if(num==1)
+            startActivity(obj2);
+        else
+            startActivity(obj3);
     }
 
     private void initToolbar() {

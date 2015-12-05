@@ -35,7 +35,8 @@
                     android:layout_marginLeft="16dp"
                     android:text="배고픈 수빈"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="#ffffff"
+                    android:textColor="#8b000000"
+                    android:textSize="18dp"
                     android:textStyle="bold" />
             </FrameLayout>
 
@@ -56,7 +57,8 @@
                 android:layout_gravity="right"
                 android:layout_margin="8dp"
                 android:background="?attr/selectableItemBackground"
-                android:text="more"
+                android:text="뉴스전문보기"
+                android:onClick="news_onclick"
                 android:textColor="@color/colorPrimary" />
         </LinearLayout>
     </android.support.v7.widget.CardView>
