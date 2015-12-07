@@ -34,6 +34,6 @@ public class ViewerHolderSchedule extends RecyclerView.ViewHolder {
         mRecycleHolder = new ViewHolder();
         mRecycleHolder.mTitle = (TextView) itemView.findViewById(R.id.tv_scheduler_title);
         mRecycleHolder.mContext = (TextView) itemView.findViewById(R.id.tv_scheduler_context);
-        mRecycleHolder.mImage = (NetworkImageView) itemView.findViewById(R.id.iv_scheduker_icon);
+        mRecycleHolder.mImage = (ImageView) itemView.findViewById(R.id.iv_scheduker_icon);
     }
 }

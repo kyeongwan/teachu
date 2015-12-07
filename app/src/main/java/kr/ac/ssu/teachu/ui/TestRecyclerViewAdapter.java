@@ -7,7 +7,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.android.volley.toolbox.ImageLoader;
 
@@ -15,7 +14,7 @@ import java.util.List;
 
 import kr.ac.ssu.teachu.R;
 import kr.ac.ssu.teachu.model.Board;
-import kr.ac.ssu.teachu.model.schedule;
+import kr.ac.ssu.teachu.model.Schedule;
 import kr.ac.ssu.teachu.util.AppController;
 
 
@@ -26,17 +25,16 @@ public class TestRecyclerViewAdapter extends RecyclerView.Adapter<ViewerHolder> 
 
     private ImageLoader mImageLoader;
     List<Board> list;
-    List<schedule> slist;
+    List<Schedule> slist;
     Context context;
 
     static final int TYPE_HEADER = 0;
     static final int TYPE_CELL = 1;
 
-    public TestRecyclerViewAdapter(List<Board> contents, List<schedule> schedules, Context context)
+    public TestRecyclerViewAdapter(List<Board> contents, Context context)
     {
         mImageLoader = AppController.getInstance().getImageLoader();
         this.list = contents;
-        this.slist = schedules;
         this.context = context;
     }
 
