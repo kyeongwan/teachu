@@ -25,7 +25,6 @@ import com.github.florent37.materialviewpager.header.HeaderDesign;
 import java.util.Random;
 
 import kr.ac.ssu.teachu.R;
-import kr.ac.ssu.teachu.model.Board;
 
 /**
  * Created by lk on 15. 12. 1..
@@ -158,7 +157,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnFr
 
                     case R.id.nav_student_manage: //학생관리
                         Toast.makeText(getApplicationContext(),"학생관리로 이동합니다",Toast.LENGTH_SHORT).show();
-                        Intent obj2=new Intent(MainActivity.this,StudentManageUI.class);
+                        Intent obj2=new Intent(MainActivity.this,DrawActivity.class);
                         startActivity(obj2);
                         //showSche(getResources().getText(R.string.all_schedule));
                         break;
