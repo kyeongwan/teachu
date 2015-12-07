@@ -6,8 +6,12 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Rect;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import kr.ac.ssu.teachu.ui.ViewerHolderSchedule;
 
@@ -20,29 +24,37 @@ public class DrawLine extends View {
     private Path path;
     private Canvas canvas;
     private Paint paint;
+    private int h;
+    private int w;
     private float x;
     private float y;
+    private SockJSImpl sockJS;
+    private String channel_id = "42f34b4143d7762b1d604c1f03036f7725d75798d44c461724d4a65e9cac8f79";
 
 
-    public DrawLine(Context context, Rect rect) {
+    public DrawLine(Context context, Rect rect, SockJSImpl sockJS) {
         super(context);
 
-        bitmap = Bitmap.createBitmap(rect.width(), rect.height(), Bitmap.Config.ARGB_8888);
+        w = rect.width();
+        h = rect.height();
+
+        bitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
         canvas = new Canvas(bitmap);
         path = new Path();
+        this.sockJS = sockJS;
     }
 
-    public void onDraw(Canvas canvas){
-        if(bitmap != null){
-            canvas.drawBitmap(bitmap, 0,0, null);
+    public void onDraw(Canvas canvas) {
+        if (bitmap != null) {
+            canvas.drawBitmap(bitmap, 0, 0, null);
         }
     }
 
-    public boolean onTouchEvent(MotionEvent event){
+    public boolean onTouchEvent(MotionEvent event) {
         float px = event.getX();
         float py = event.getY();
 
-        switch (event.getAction() & MotionEvent.ACTION_MASK){
+        switch (event.getAction() & MotionEvent.ACTION_MASK) {
             case MotionEvent.ACTION_DOWN:
                 path.reset();
                 path.moveTo(px, py);
@@ -55,11 +67,16 @@ public class DrawLine extends View {
                 float dx = Math.abs(px - x);
                 float dy = Math.abs(py - y);
 
-                if(dx >= 4 || dy <= 4){
-                    path.quadTo(x,y, px, py);
+                if (dx >= 4 || dy <= 4) {
+                    path.quadTo(x, y, px, py);
 
                     x = px;
                     y = py;
+                    Log.i("fff", x + "");
+                    JSONObject obj = send((x / (float) w) + "/" + (y / (float) h) + "/" + (px / (float) w) + "/" + (py / (float) h));
+
+                    sockJS.send(obj);
+
 
                     canvas.drawPath(path, paint);
                 }
@@ -68,6 +85,19 @@ public class DrawLine extends View {
 
         }
         return false;
+    }
+
+    public void draw(float xp, float yp, float pxp, float pyp){
+        float x = xp * w;
+        float y = yp * h;
+        float px = pxp * w;
+        float py = pyp * h;
+        float dx = Math.abs(px - x);
+        float dy = Math.abs(py - y);
+
+        path.quadTo(x, y, px, py);
+        canvas.drawPath(path, paint);
+        invalidate();
     }
 
     public void setLineColor(int color) {
@@ -86,5 +116,26 @@ public class DrawLine extends View {
 
     public DrawLine(Context context) {
         super(context);
+    }
+
+
+    private JSONObject send(String msg) {
+        JSONObject obj = new JSONObject();
+        try {
+            obj.put("type", "publish");
+            obj.put("address", "to.server.channel");
+            JSONObject body = new JSONObject();
+            body.put("type", "draw");
+            body.put("channel_id", channel_id);
+            body.put("sender_id", "username");
+            body.put("sender_nick", "username" + "&&" + "#ffffff");
+            body.put("app_id", "com.aaa.aaa");
+            body.put("msg", msg);
+            obj.put("body", body);
+        } catch (JSONException e) {
+            e.printStackTrace();
+            Log.e("onClick", e.toString());
+        }
+        return obj;
     }
 }
