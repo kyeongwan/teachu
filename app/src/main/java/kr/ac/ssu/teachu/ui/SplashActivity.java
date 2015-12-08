@@ -64,7 +64,7 @@ public class SplashActivity extends AppCompatActivity {
 
 
 
-        UserInfo.getInstance().deviceId = tm.getDeviceId();
+        //UserInfo.getInstance().deviceId = tm.getDeviceId();
         UserInfo.getInstance().email = email;
         UserInfo.getInstance().password = pw;
 

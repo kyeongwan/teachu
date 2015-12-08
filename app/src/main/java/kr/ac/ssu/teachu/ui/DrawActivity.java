@@ -1,5 +1,6 @@
 package kr.ac.ssu.teachu.ui;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import kr.ac.ssu.teachu.R;
+import kr.ac.ssu.teachu.service.ChattingService;
 import kr.ac.ssu.teachu.util.DrawLine;
 import kr.ac.ssu.teachu.util.SockJSImpl;
 
@@ -43,6 +45,7 @@ public class DrawActivity extends AppCompatActivity {
 
         //db써서 반 list view로 출력
         connectSockJS();
+        startService(new Intent(DrawActivity.this, ChattingService.class));
 
 
     }
@@ -95,7 +98,7 @@ public class DrawActivity extends AppCompatActivity {
                                 @Override
                                 public void run() {
                                     String[] data = msg.split("/");
-                                    drawLine.draw(Float.parseFloat(data[0]),Float.parseFloat(data[1]),Float.parseFloat(data[2]),Float.parseFloat(data[3]));
+                                    drawLine.draw(Float.parseFloat(data[0]), Float.parseFloat(data[1]), Float.parseFloat(data[2]), Float.parseFloat(data[3]));
                                 }
                             });
 
