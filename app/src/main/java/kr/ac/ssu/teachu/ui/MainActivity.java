@@ -22,9 +22,14 @@ import android.widget.Toast;
 import com.github.florent37.materialviewpager.MaterialViewPager;
 import com.github.florent37.materialviewpager.header.HeaderDesign;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Random;
 
 import kr.ac.ssu.teachu.R;
+import kr.ac.ssu.teachu.model.UserInfo;
+import kr.ac.ssu.teachu.util.DBManager;
 
 /**
  * Created by lk on 15. 12. 1..
@@ -51,6 +56,17 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnFr
         initMaterialViewPager();
         initToolbar();
         initNavigationView();
+
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar cal = Calendar.getInstance();
+        String query = "INSERT INTO schedule (title, time, date, context)" + "VALUES('"+"aaa"+"', 'ssssss', '"+dateFormat.format(cal.getTime())+"', 'fffff')";
+        try {
+            DBManager.getInstance().write(query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
     }
     public void news_onclick(View view)
     {

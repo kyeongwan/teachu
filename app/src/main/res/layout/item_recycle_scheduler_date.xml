@@ -4,6 +4,9 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:textSize="16sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="2015. 01. 01. (화)"

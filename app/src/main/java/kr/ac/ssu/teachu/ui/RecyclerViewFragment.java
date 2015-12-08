@@ -1,5 +1,6 @@
 package kr.ac.ssu.teachu.ui;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -13,12 +14,20 @@ import android.view.ViewGroup;
 import com.github.florent37.materialviewpager.MaterialViewPagerHelper;
 import com.github.florent37.materialviewpager.adapter.RecyclerViewMaterialAdapter;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import kr.ac.ssu.teachu.R;
 import kr.ac.ssu.teachu.model.Board;
 import kr.ac.ssu.teachu.model.Schedule;
+import kr.ac.ssu.teachu.util.DBManager;
 
 
 /**
@@ -35,7 +44,9 @@ public class RecyclerViewFragment extends Fragment {
     private static final int ITEM_COUNT = 1;
 
     private List<Board> mContentItems = new ArrayList<>();
-    private List<Schedule> mScheduleItems = new ArrayList<>();
+    private ArrayList<Schedule> mScheduleItems = new ArrayList<>();
+    private ArrayList<ArrayList<Schedule>> mScheduleList = new ArrayList<>();
+    SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
 
 
     public static RecyclerViewFragment newInstance(int position) {
@@ -61,24 +72,63 @@ public class RecyclerViewFragment extends Fragment {
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setHasFixedSize(true);
 
-        if (position == 0) {
-            mAdapter = new RecyclerViewMaterialAdapter(new ScheduleAdapter(mScheduleItems, getActivity()));
-            mRecyclerView.setAdapter(mAdapter);
-        } else if (position == 1) {
-            mAdapter = new RecyclerViewMaterialAdapter(new TestRecyclerViewAdapter(mContentItems, getActivity()));
-            mRecyclerView.setAdapter(mAdapter);
-        } else {
-            mAdapter = new RecyclerViewMaterialAdapter(new TestRecyclerViewAdapter(mContentItems, getActivity().getApplicationContext()));
-            mRecyclerView.setAdapter(mAdapter);
-        }
-
         {
 
             if (position == 0) {
-                mScheduleItems.add(new Schedule("밥먹기"));
-                mScheduleItems.add(new Schedule("밥먹기"));
-                mScheduleItems.add(new Schedule("밥먹기"));
-                mScheduleItems.add(new Schedule("밥먹기"));
+                DBManager.getInstance().select("SELECT * FROM schedule", new DBManager.OnSelect() {
+                    @Override
+                    public void onSelect(Cursor cursor) {
+
+                        String title = cursor.getString(1);
+                        String time = cursor.getString(2);
+                        String date = cursor.getString(3);
+                        String context = cursor.getString(4);
+
+                        Date to = null;
+                        try {
+                            to = transFormat.parse(date);
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                        Log.i("schedule", title +"/"+ time +"/"+ date +"/"+ context);
+                        Schedule schedule = new Schedule(title, context, to);
+                        mScheduleItems.add(schedule);
+                    }
+
+                    @Override
+                    public void onComplete(int cnt) {
+                        ArrayList<Schedule> list = new ArrayList<>();
+                        Collections.sort(mScheduleItems);
+                        Date date = mScheduleItems.get(0).date;
+                        String to = transFormat.format(date);
+                        Log.i("to", to);
+                        Schedule sT = new Schedule(to);
+                        list.add(sT);
+                        for (int i = 0; i < cnt; i++) {
+                            Schedule s = mScheduleItems.get(i);
+                            if (0 == date.compareTo(s.date)) {
+                                s.setType(1);
+                                list.add(s);
+                            } else {
+                                to = transFormat.format(s.date);
+                                sT = new Schedule(to);
+                                Log.i("changee", to);
+                                list.add(sT);
+                                date = s.date;
+                                mScheduleItems.get(i).setType(1);
+                                list.add(mScheduleItems.get(i));
+                            }
+                        }
+                        mScheduleItems = list;
+                        mAdapter.notifyDataSetChanged();
+//                        mScheduleList.add(list);
+                    }
+
+                    @Override
+                    public void onErrorHandler(Exception e) {
+
+                    }
+                });
 
             } else if (position == 1)
                 mContentItems.add(new Board("bbb", "bbb", "http://cdn.kidspot.com.au/wp-content/uploads/2013/12/HospitalChild_happy-600x420.jpg"));
@@ -90,8 +140,18 @@ public class RecyclerViewFragment extends Fragment {
                 mContentItems.add(new Board("새 교육과정 따라 큰 변화 예고…유형별 문제풀이에 집중", "A형의 경우 변별력 있는 고난도 문항은 상용로그의 성질에 대한 이해를 묻는 30번 문항이었는데,... ", "http://www.yeongnam.com/Photo/2015/11/30/L20151130.010160756070001i1.jpg"));
             }
 
-            mAdapter.notifyDataSetChanged();
 
+
+        }
+        if (position == 0) {
+            mAdapter = new RecyclerViewMaterialAdapter(new ScheduleAdapter(mScheduleItems, getActivity()));
+            mRecyclerView.setAdapter(mAdapter);
+        } else if (position == 1) {
+            mAdapter = new RecyclerViewMaterialAdapter(new TestRecyclerViewAdapter(mContentItems, getActivity()));
+            mRecyclerView.setAdapter(mAdapter);
+        } else {
+            mAdapter = new RecyclerViewMaterialAdapter(new TestRecyclerViewAdapter(mContentItems, getActivity().getApplicationContext()));
+            mRecyclerView.setAdapter(mAdapter);
         }
 
 

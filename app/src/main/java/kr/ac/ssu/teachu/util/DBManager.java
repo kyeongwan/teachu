@@ -31,11 +31,12 @@ public class DBManager extends SQLiteOpenHelper {
                         "gcm_key TEXT);";
         db.execSQL(sql);
 
-        sql = "CREATE TABLE IF NOT EXISTS app_info(" +
-                "app_id TEXT PRIMARY KEY UNIQUE, " +
-                "app_name TEXT, " +
-                "user_nick TEXT, " +
-                "check_registration INTEGER);"; // boolean처럼 사용할 것. 앱 등록 여부.
+        sql = "CREATE TABLE IF NOT EXISTS schedule(" +
+                "schedule_id TEXT PRIMARY KEY UNIQUE, " +
+                "title TEXT, " +
+                "time TEXT, " +
+                "date datetime," +
+                "context text);"; // boolean처럼 사용할 것. 앱 등록 여부.
         db.execSQL(sql);
 
         sql = "CREATE TABLE IF NOT EXISTS chat_info(" +

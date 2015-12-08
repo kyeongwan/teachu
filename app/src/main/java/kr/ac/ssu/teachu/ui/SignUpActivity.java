@@ -112,7 +112,7 @@ public class SignUpActivity extends AppCompatActivity implements LoaderManager.L
         editText_password1.setError(null);
         editText_password2.setError(null);
 
-        // Store values at the time of the signup attempt.
+        // Store values at the date of the signup attempt.
         String email = editText_email.getText().toString();
         String password1 = editText_password1.getText().toString();
         String password2 = editText_password2.getText().toString();
