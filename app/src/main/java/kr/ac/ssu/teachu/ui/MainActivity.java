@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnFr
                     case 0:
                         return HeaderDesign.fromColorResAndDrawable(
                                 R.color.colorPrimary,
-                                ContextCompat.getDrawable(getBaseContext(), R.drawable.schedule2));
+                                ContextCompat.getDrawable(getBaseContext(), R.drawable.schedule3));
                     case 1:
                         return HeaderDesign.fromColorResAndDrawable(
                                 R.color.colorPrimary,
@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnFr
                     case 2:
                         return HeaderDesign.fromColorResAndDrawable(
                                 R.color.colorPrimary,
-                                ContextCompat.getDrawable(getBaseContext(), R.drawable.news2));
+                                ContextCompat.getDrawable(getBaseContext(), R.drawable.news3));
                 }
                 return null;
             }
