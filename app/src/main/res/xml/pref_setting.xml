@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="Settings">
+        <EditTextPreference
+            android:title="password"
+            android:summary="Set you Password"
+            android:key="passkey"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="list">
+
+
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -29,7 +29,7 @@ import kr.ac.ssu.teachu.R;
 /**
  * Created by lk on 15. 12. 1..
  */
-public class MainActivity extends AppCompatActivity implements MainFragment.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements ehlMainFragment.OnFragmentInteractionListener {
 
     //private static final String TAG = makeLogTag("MainActivity");
 

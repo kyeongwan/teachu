@@ -17,3 +17,4 @@ public class Schedule
         this.day=""+c.getTime().getDay();
     }
 }
+
