@@ -1,4 +1,4 @@
-package kr.ac.ssu.teachu.ui;
+package kr.ac.ssu.teachu.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;

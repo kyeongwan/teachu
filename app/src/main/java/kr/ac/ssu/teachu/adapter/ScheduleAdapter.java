@@ -1,4 +1,4 @@
-package kr.ac.ssu.teachu.ui;
+package kr.ac.ssu.teachu.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +11,7 @@ import java.util.List;
 
 import kr.ac.ssu.teachu.R;
 import kr.ac.ssu.teachu.model.Schedule;
+import kr.ac.ssu.teachu.ui.ViewerHolderSchedule;
 
 /**
  * Created by lk on 15. 12. 8..

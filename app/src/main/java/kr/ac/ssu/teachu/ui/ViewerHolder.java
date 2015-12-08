@@ -17,7 +17,7 @@ public class ViewerHolder extends RecyclerView.ViewHolder {
 
     public ViewHolder mRecycleHolder;
 
-    static class ViewHolder {
+    public class ViewHolder {
 
         public TextView mTitle;             // Recipe Name
         public NetworkImageView mImage;     // Cooking Thumbnail

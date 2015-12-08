@@ -17,14 +17,13 @@ import com.github.florent37.materialviewpager.adapter.RecyclerViewMaterialAdapte
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import kr.ac.ssu.teachu.R;
+import kr.ac.ssu.teachu.adapter.ScheduleAdapter;
+import kr.ac.ssu.teachu.adapter.TestRecyclerViewAdapter;
 import kr.ac.ssu.teachu.model.Board;
 import kr.ac.ssu.teachu.model.Schedule;
 import kr.ac.ssu.teachu.util.DBManager;

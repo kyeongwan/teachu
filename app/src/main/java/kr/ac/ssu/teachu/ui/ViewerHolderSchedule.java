@@ -20,7 +20,7 @@ public class ViewerHolderSchedule extends RecyclerView.ViewHolder {
     public ViewHolder mRecycleHolder;
     public int type;
 
-    class ViewHolder {
+    public class ViewHolder {
         public TextView mTitle = (TextView) itemView.findViewById(R.id.tv_scheduler_title);             // Recipe Name
         public ImageView mImage = (ImageView) itemView.findViewById(R.id.iv_scheduker_icon);     // Cooking Thumbnail
         public TextView mContext = (TextView) itemView.findViewById(R.id.tv_scheduler_context);

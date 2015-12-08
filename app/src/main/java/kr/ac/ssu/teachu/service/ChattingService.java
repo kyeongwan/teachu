@@ -2,11 +2,9 @@ package kr.ac.ssu.teachu.service;
 
 import android.app.AlertDialog;
 import android.app.Service;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.database.Cursor;
 import android.database.DataSetObserver;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -42,8 +40,8 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 
 import kr.ac.ssu.teachu.R;
+import kr.ac.ssu.teachu.adapter.ChatListAdapter;
 import kr.ac.ssu.teachu.model.UserInfo;
-import kr.ac.ssu.teachu.util.DBManager;
 import kr.ac.ssu.teachu.util.SockJSImpl;
 
 public class ChattingService extends Service implements View.OnClickListener{

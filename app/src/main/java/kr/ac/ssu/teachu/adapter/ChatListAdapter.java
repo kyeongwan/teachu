@@ -1,4 +1,4 @@
-package kr.ac.ssu.teachu.service;
+package kr.ac.ssu.teachu.adapter;
 
 import android.content.Context;
 import android.graphics.Color;

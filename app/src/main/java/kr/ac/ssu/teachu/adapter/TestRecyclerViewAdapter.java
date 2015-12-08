@@ -1,4 +1,4 @@
-package kr.ac.ssu.teachu.ui;
+package kr.ac.ssu.teachu.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +15,7 @@ import java.util.List;
 import kr.ac.ssu.teachu.R;
 import kr.ac.ssu.teachu.model.Board;
 import kr.ac.ssu.teachu.model.Schedule;
+import kr.ac.ssu.teachu.ui.ViewerHolder;
 import kr.ac.ssu.teachu.util.AppController;
 
 
