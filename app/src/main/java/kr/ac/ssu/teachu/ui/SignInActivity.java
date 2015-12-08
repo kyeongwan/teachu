@@ -116,7 +116,7 @@ public class SignInActivity extends AppCompatActivity implements LoaderManager.L
         mEmailView.setError(null);
         mPasswordView.setError(null);
 
-        // Store values at the time of the login attempt.
+        // Store values at the date of the login attempt.
         email = mEmailView.getText().toString();
         password = mPasswordView.getText().toString();
 

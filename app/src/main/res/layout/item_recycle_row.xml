@@ -24,6 +24,7 @@
                 <com.android.volley.toolbox.NetworkImageView
                     android:id="@+id/iv_recycle_img"
                     android:layout_width="match_parent"
+                    android:scaleType="centerCrop"
                     android:layout_height="200dp" />
 
                 <TextView
@@ -33,9 +34,11 @@
                     android:layout_gravity="left|bottom"
                     android:layout_marginBottom="16dp"
                     android:layout_marginLeft="16dp"
+                    android:textColor="#ffffff"
+                    android:background="#13000000"
+
                     android:text="배고픈 수빈"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="#8b000000"
                     android:textSize="18dp"
                     android:textStyle="bold" />
             </FrameLayout>
@@ -46,6 +49,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
+
                 android:layout_marginTop="16dp"
                 android:text="안녕하세요. 노수빈 학우가 배가 고프다는 것을 알려드립니다" />
 
