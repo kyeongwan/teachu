@@ -22,6 +22,7 @@ import java.util.Date;
 import java.util.List;
 
 import kr.ac.ssu.teachu.R;
+import kr.ac.ssu.teachu.adapter.Notice_adapter;
 import kr.ac.ssu.teachu.adapter.ScheduleAdapter;
 import kr.ac.ssu.teachu.adapter.TestRecyclerViewAdapter;
 import kr.ac.ssu.teachu.model.Board;
@@ -129,8 +130,12 @@ public class RecyclerViewFragment extends Fragment {
                     }
                 });
 
-            } else if (position == 1)
-                mContentItems.add(new Board("bbb", "bbb", "http://cdn.kidspot.com.au/wp-content/uploads/2013/12/HospitalChild_happy-600x420.jpg"));
+            } else if (position == 1) {
+                mContentItems.add(new Board("Yap Chee en 선생님의 마지막 인사", "Thank you everyone","http://cse.ssu.ac.kr/images/01_sub/prof_img_31.gif"));
+                mContentItems.add(new Board("장훈 선생님의 '즐거운 인생' 강좌 개설", "숭실대학교 교수로 계시는 장훈 교수님의 인생을 즐겁게 사는 법에 대한 강좌가 개설됩니다. 신청할 학생들은 담당 선생님에게 개인 메시지를 보내주세요","http://cse.ssu.ac.kr/images/01_sub/prof_img_23.gif"));
+                mContentItems.add(new Board("전문석 선생님의 Wifi를 통한 남북통일강좌 개설", "숭실대학교 교수로 계시는 전문석 교수님의 남북통일강좌가 개설됩니다. 신청할 학생들은 담당 선생님에게 개인 메시지를 보내주세요","http://cse.ssu.ac.kr/images/01_sub/prof_img_24.gif"));
+
+            }
 
 
             else if (position == 2) {
@@ -144,7 +149,7 @@ public class RecyclerViewFragment extends Fragment {
             mAdapter = new RecyclerViewMaterialAdapter(new ScheduleAdapter(mScheduleItems, getActivity()));
             mRecyclerView.setAdapter(mAdapter);
         } else if (position == 1) {
-            mAdapter = new RecyclerViewMaterialAdapter(new TestRecyclerViewAdapter(mContentItems, getActivity()));
+            mAdapter = new RecyclerViewMaterialAdapter(new Notice_adapter(mContentItems, getActivity()));
             mRecyclerView.setAdapter(mAdapter);
         } else {
             mAdapter = new RecyclerViewMaterialAdapter(new TestRecyclerViewAdapter(mContentItems, getActivity().getApplicationContext()));
