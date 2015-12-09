@@ -5,16 +5,39 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary">
+        <ImageButton
+            android:layout_marginLeft="16dp"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/backButton"
+            android:background="#00ffffff"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_arrow_back" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_marginLeft="16dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:src="@drawable/logo"
+            android:id="@+id/readingTextView" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:id="@+id/ll_canvas_canvas">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="New Text"
-            android:id="@+id/textView2"
-            android:layout_gravity="center_horizontal" />
+            android:gravity="center"
+            android:textColor="#30000000"
+            android:text="1. Invite your teacher\n2. You can draw line or chat with your teacher"
+            android:id="@+id/textView2" />
     </LinearLayout>
 
 </LinearLayout>

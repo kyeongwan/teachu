@@ -1,6 +1,7 @@
 package kr.ac.ssu.teachu.util;
 
 import android.util.Log;
+import android.widget.Toast;
 
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.drafts.Draft_17;
@@ -23,7 +24,7 @@ public class SockJSImpl extends WebSocketClient {
     private final static String dictionary = "abcdefghijklmnopqrstuvwxyz0123456789_";
     private String roomname;
     private Timer timer;
-    private String nickname = "";
+    public String nickname = "";
     private String title;
 
     public SockJSImpl(String serverURI, String roomname, String nickname, String title) throws URISyntaxException {
@@ -124,7 +125,7 @@ public class SockJSImpl extends WebSocketClient {
             body.put("channel_id", roomname);
             body.put("sender_id", "aaa");
             body.put("sender_nick", nickname);
-            body.put("msg", "님이 " + title + "방에 입장하셨습니다.");
+            body.put("msg", "님이 입장하셨습니다.");
             log.put("body", body);
             send(log);
         } catch (JSONException e) {

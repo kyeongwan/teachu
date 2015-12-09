@@ -32,7 +32,10 @@
         android:theme="@style/AppTheme">
 
         /* intent 관련 */
-        <activity android:name=".ui.DrawActivity" />
+        <activity android:name=".ui.DrawActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
         <activity android:name=".ui.BoardManageUI" />
 
         <activity

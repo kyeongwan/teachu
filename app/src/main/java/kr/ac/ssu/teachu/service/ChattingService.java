@@ -2,6 +2,7 @@ package kr.ac.ssu.teachu.service;
 
 import android.app.AlertDialog;
 import android.app.Service;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -31,6 +32,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.java_websocket.exceptions.WebsocketNotConnectedException;
 import org.json.JSONException;
@@ -105,7 +107,7 @@ public class ChattingService extends Service implements View.OnClickListener{
     private boolean animationDone = true;
     int animationR;
 
-    private String nickname = "닉넴";
+    private String nickname = "송누리";
     private String title;
 
     @Override
@@ -763,46 +765,28 @@ public class ChattingService extends Service implements View.OnClickListener{
     }
 
     private AlertDialog ChatSelectDialog() {
-//
-//        String items[] = new String[chatroomlist.size()];
-//        for (int i = 0; i < chatroomlist.size(); i++) {
-//            items[i] = chatroomlist.get(i).getChannel_name();
-//        }
-//        final int[] cnt = {0};
-//        AlertDialog.Builder ab = new AlertDialog.Builder(getBaseContext());
-//        ab.setTitle("입장할 채널 선택");
-//        ab.setSingleChoiceItems(items, 0,
-//                new DialogInterface.OnClickListener() {
-//                    public void onClick(DialogInterface dialog, int whichButton) {
-//                        cnt[0] = whichButton;
-//                    }
-//                }).setPositiveButton("Ok",
-//                new DialogInterface.OnClickListener() {
-//                    public void onClick(DialogInterface dialog, int whichButton) {
-//                        // OK 버튼 클릭시 , 여기서 선택한 값을 메인 Activity 로 넘기면 된다.
-//                        sockJS.closeSession();
-//                        try {
-//                            ExitMessage();
-//                        } catch (NullPointerException e) {
-//                            e.printStackTrace();
-//                        }
-//
-//                        if (showchat > 0) {
-//                            showchat = -1;
-//                        }
-//                        controlChatView();
-//                        //channelId = "96da751edc63634c4c5958ce90e6a889ee1cdda247d92a978f340336791d5fb3";
-//                        channelId = chatroomlist.get(cnt[0]).getChannel_id();
-//
-//                    }
-//                }).setNegativeButton("Cancel",
-//                new DialogInterface.OnClickListener() {
-//                    public void onClick(DialogInterface dialog, int whichButton) {
-//                        // Cancel 버튼 클릭시
-//                    }
-//                });
-//        return ab.create();
-        return null;
+
+        String items[] = {"강경완 선생님","송누리 선생님", "노수빈 선생님"};
+        final int[] cnt = {0};
+        AlertDialog.Builder ab = new AlertDialog.Builder(getBaseContext());
+        ab.setTitle("초대할 선생님 선택");
+        ab.setSingleChoiceItems(items, 0,
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        cnt[0] = whichButton;
+                    }
+                }).setPositiveButton("Ok",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        Toast.makeText(getApplicationContext(), "선생님을 초대중입니다...", Toast.LENGTH_LONG).show();
+                    }
+                }).setNegativeButton("Cancel",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        // Cancel 버튼 클릭시
+                    }
+                });
+        return ab.create();
     }
 
 }

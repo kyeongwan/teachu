@@ -69,7 +69,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ViewerHolderSchedule> 
         try {
             holder.mRecycleHolder.mTitle.setText(scheduleItem.title);
             holder.mRecycleHolder.mContext.setText(scheduleItem.context);
-            holder.mRecycleHolder.mImage.setImageResource(R.drawable.ic_cast_dark);
+            holder.mRecycleHolder.mImage.setImageResource(R.drawable.science);
 
         } catch (NullPointerException e) {
             e.printStackTrace();

@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements ehlMainFragment.O
 
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Calendar cal = Calendar.getInstance();
-        String query = "INSERT INTO schedule (title, time, date, context)" + "VALUES('"+"aaa"+"', 'ssssss', '"+dateFormat.format(cal.getTime())+"', 'fffff')";
+        String query = "INSERT INTO schedule (title, time, date, context)" + "VALUES('" + "aaa" + "', 'ssssss', '" + dateFormat.format(cal.getTime()) + "', 'fffff')";
         try {
             DBManager.getInstance().write(query);
         } catch (Exception e) {
@@ -68,17 +68,17 @@ public class MainActivity extends AppCompatActivity implements ehlMainFragment.O
 
 
     }
-    public void news_onclick(View view)
-    {
-        TextView tv=(TextView)view;
-        Intent obj1=new Intent(Intent.ACTION_VIEW,Uri.parse("http://www.yeongnam.com/mnews/newsview.do?mode=newsView&newskey=20151130.010190825110001"));
-        Intent obj2=new Intent(Intent.ACTION_VIEW,Uri.parse("http://www.yeongnam.com/edu/newsview.do?mode=newsView&newskey=20151123.010170758550001"));
-        Intent obj3=new Intent(Intent.ACTION_VIEW,Uri.parse("http://www.yeongnam.com/edu/newsview.do?mode=newsView&newskey=20151130.010160756070001"));
-        Random rand=new Random();
-        int num=rand.nextInt(3);
-        if(num==0)
+
+    public void news_onclick(View view) {
+        TextView tv = (TextView) view;
+        Intent obj1 = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.yeongnam.com/mnews/newsview.do?mode=newsView&newskey=20151130.010190825110001"));
+        Intent obj2 = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.yeongnam.com/edu/newsview.do?mode=newsView&newskey=20151123.010170758550001"));
+        Intent obj3 = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.yeongnam.com/edu/newsview.do?mode=newsView&newskey=20151130.010160756070001"));
+        Random rand = new Random();
+        int num = rand.nextInt(3);
+        if (num == 0)
             startActivity(obj1);
-        else if(num==1)
+        else if (num == 1)
             startActivity(obj2);
         else
             startActivity(obj3);
@@ -161,29 +161,29 @@ public class MainActivity extends AppCompatActivity implements ehlMainFragment.O
     private void setupDrawerContent(NavigationView navigationView) {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public boolean onNavigationItemSelected(MenuItem menuItem)
-            {
+            public boolean onNavigationItemSelected(MenuItem menuItem) {
 
                 switch (menuItem.getItemId()) {
                     case R.id.nav_board_manage: //게시판관리
-                        Toast.makeText(getApplicationContext(),"게시판관리로 이동합니다",Toast.LENGTH_LONG).show();
-                        Intent obj1 = new Intent(MainActivity.this,BoardManageUI.class);
+                        Toast.makeText(getApplicationContext(), "게시판관리로 이동합니다", Toast.LENGTH_LONG).show();
+                        Intent obj1 = new Intent(MainActivity.this, BoardManageUI.class);
                         startActivity(obj1);
                         break;
 
                     case R.id.nav_student_manage: //학생관리
-                        Toast.makeText(getApplicationContext(),"학생관리로 이동합니다",Toast.LENGTH_SHORT).show();
-                        Intent obj2=new Intent(MainActivity.this,DrawActivity.class);
+                        Toast.makeText(getApplicationContext(), "학생관리로 이동합니다", Toast.LENGTH_SHORT).show();
+                        Intent obj2 = new Intent(MainActivity.this, DrawActivity.class);
                         startActivity(obj2);
                         //showSche(getResources().getText(R.string.all_schedule));
                         break;
 
                     case R.id.nav_logout:
-                          Toast.makeText(getApplicationContext(),"로그아웃 해주세요",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(MainActivity.this, SignInActivity.class));
+                        finish();
                         break;
 
                     case R.id.nav_setting:
-                        Toast.makeText(getApplicationContext(),"옵션 바꿔주세요",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "옵션 바꿔주세요", Toast.LENGTH_SHORT).show();
                         break;
                 }
                 menuItem.setChecked(true);
