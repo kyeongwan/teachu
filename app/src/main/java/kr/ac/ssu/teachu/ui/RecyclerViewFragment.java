@@ -152,7 +152,7 @@ public class RecyclerViewFragment extends Fragment {
             mAdapter = new RecyclerViewMaterialAdapter(new Notice_adapter(mContentItems, getActivity()));
             mRecyclerView.setAdapter(mAdapter);
         } else {
-            mAdapter = new RecyclerViewMaterialAdapter(new TestRecyclerViewAdapter(mContentItems, getActivity().getApplicationContext()));
+            mAdapter = new RecyclerViewMaterialAdapter(new TestRecyclerViewAdapter(mContentItems, getActivity()));
             mRecyclerView.setAdapter(mAdapter);
         }
 
