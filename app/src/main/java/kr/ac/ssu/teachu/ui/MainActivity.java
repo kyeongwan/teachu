@@ -1,8 +1,10 @@
 package kr.ac.ssu.teachu.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -182,9 +184,12 @@ public class MainActivity extends AppCompatActivity implements ehlMainFragment.O
                         finish();
                         break;
 
-                    case R.id.nav_setting:
-                        Toast.makeText(getApplicationContext(), "옵션 바꿔주세요", Toast.LENGTH_SHORT).show();
+                    case R.id.nav_setting: {
+                        Toast.makeText(getApplicationContext(), "옵션", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity.this,Pref_UI.class);
+                        startActivityForResult(intent,1);
                         break;
+                    }
                 }
                 menuItem.setChecked(true);
                 DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -193,7 +198,20 @@ public class MainActivity extends AppCompatActivity implements ehlMainFragment.O
             }
         });
     }
-
+    @Override
+    protected void onActivityResult(int requestCode,int result, Intent data)
+    {
+        super.onActivityResult(requestCode, result, data);
+        if(requestCode==1)
+        {
+            display();
+        }
+    }
+    public void display()
+    {
+        SharedPreferences pref= PreferenceManager.getDefaultSharedPreferences(this);
+        String s="";
+    }
     public void showHome() {
         /**
          * Todo 아래의 메소드가 호출되면 MainActivity위로 있는 모든 Fragment가 소멸됨

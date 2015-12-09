@@ -37,7 +37,7 @@
 
         </activity>
         <activity android:name=".ui.BoardManageUI" />
-
+        <activity android:name=".ui.Pref_UI"></activity>
         <activity
             android:name=".ui.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
