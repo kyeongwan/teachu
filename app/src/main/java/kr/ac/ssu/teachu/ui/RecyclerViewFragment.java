@@ -139,8 +139,6 @@ public class RecyclerViewFragment extends Fragment {
                 mContentItems.add(new Board("새 교육과정 따라 큰 변화 예고…유형별 문제풀이에 집중", "A형의 경우 변별력 있는 고난도 문항은 상용로그의 성질에 대한 이해를 묻는 30번 문항이었는데,... ", "http://www.yeongnam.com/Photo/2015/11/30/L20151130.010160756070001i1.jpg"));
             }
 
-
-
         }
         if (position == 0) {
             mAdapter = new RecyclerViewMaterialAdapter(new ScheduleAdapter(mScheduleItems, getActivity()));

@@ -6,12 +6,28 @@
             android:id="@+id/nav_student_manage"
             android:checked="true"
             android:icon="@drawable/student_manage"
-            android:title="학생관리" />
+            android:title="실시간 질문하기" />
         <item
             android:id="@+id/nav_board_manage"
             android:checked="true"
             android:icon="@drawable/board_manage"
-            android:title="게시판관리" />
+            android:title="자유 게시판" />
+
+        <item
+            android:id="@+id/nav_board_manage2"
+            android:checked="true"
+            android:icon="@drawable/board_manage"
+            android:title="질문 게시판" />
+        <item
+            android:id="@+id/nav_board_manage3"
+            android:checked="true"
+            android:icon="@drawable/board_manage"
+            android:title="익명 게시판" />
+        <item
+            android:id="@+id/nav_board_manage4"
+            android:checked="true"
+            android:icon="@drawable/board_manage"
+            android:title="건의사항" />
 
     </group>
 

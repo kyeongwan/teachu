@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="일정"
+            android:id="@+id/textView3" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_margin="16dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/et1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_height="wrap_content"
+            android:text="시간"
+            android:id="@+id/textView4" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="time"
+            android:layout_margin="16dp"
+            android:ems="10"
+            android:id="@+id/et2"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="설명"
+            android:id="@+id/textView5" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/et3"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="16dp"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/korean"
+
+            android:id="@+id/icon1"
+            android:layout_gravity="center_vertical" />
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:background="@drawable/math"
+            android:layout_height="40dp"
+            android:id="@+id/icon2"
+            android:layout_gravity="center_vertical" />
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:background="@drawable/science"
+            android:layout_height="wrap_content"
+            android:id="@+id/icon3"
+            android:layout_gravity="center_vertical" />
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:background="@drawable/history2"
+            android:layout_height="wrap_content"
+            android:id="@+id/icon4"
+            android:layout_gravity="center_vertical" />
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:background="@drawable/english"
+            android:layout_height="wrap_content"
+            android:id="@+id/icon5"
+            android:layout_gravity="center_vertical" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="end">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="날짜 선택"
+            android:background="?attr/selectableItemBackground"
+            android:id="@+id/bt1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="등록"
+            android:background="?attr/selectableItemBackground"
+            android:id="@+id/bt2" />
+    </LinearLayout>
+
+</LinearLayout>

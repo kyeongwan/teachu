@@ -3,8 +3,10 @@ package kr.ac.ssu.teachu.util;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -91,11 +93,13 @@ public class DrawLine extends View {
         float dx = Math.abs(px - x);
         float dy = Math.abs(py - y);
 //        path.reset();
+        setLineColor(Color.RED);
         path.moveTo(x, y);
 
         path.quadTo(x, y, px, py);
         canvas.drawPath(path, paint);
         invalidate();
+        setLineColor(Color.GRAY);
     }
 
     public void setLineColor(int color) {
@@ -135,5 +139,12 @@ public class DrawLine extends View {
             Log.e("onClick", e.toString());
         }
         return obj;
+    }
+
+    public void refresh() {
+        canvas.drawColor(0, PorterDuff.Mode.CLEAR);
+        invalidate();
+
+        Log.i("refresh", "refresh");
     }
 }

@@ -54,6 +54,15 @@ public class DrawActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        ImageButton imageButton2 = (ImageButton) findViewById(R.id.refrash);
+        imageButton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                drawLine.refresh();
+            }
+        });
+
         /*
         ListView list=(ListView)findViewById(android.R.id.list);
         list.setAdapter(adapter);
@@ -117,7 +126,7 @@ public class DrawActivity extends AppCompatActivity {
                                     drawLine.draw(Float.parseFloat(data[0]), Float.parseFloat(data[1]), Float.parseFloat(data[2]), Float.parseFloat(data[3]));
                                 }
                             });
-                        else if (("to.channel." + channelId).equals(address) && bodyType.equals("log")) {
+                        else if (("to.channel." + channelId).equals(address) && bodyType.equals("log")&& (!nickname.equals(email))) {
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
