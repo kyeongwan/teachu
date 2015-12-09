@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -30,7 +31,6 @@ import java.util.Calendar;
 import java.util.Random;
 
 import kr.ac.ssu.teachu.R;
-import kr.ac.ssu.teachu.model.UserInfo;
 import kr.ac.ssu.teachu.util.DBManager;
 
 /**
@@ -61,12 +61,65 @@ public class MainActivity extends AppCompatActivity implements ehlMainFragment.O
 
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Calendar cal = Calendar.getInstance();
-        String query = "INSERT INTO schedule (title, time, date, context)" + "VALUES('" + "aaa" + "', 'ssssss', '" + dateFormat.format(cal.getTime()) + "', 'fffff')";
+        cal.set(Calendar.MONTH, Calendar.DECEMBER);
+        cal.set(Calendar.DATE, 8);
+        String query = "INSERT INTO schedule (title, time, date, context)" + "VALUES('" + "과학 수업 (11:30 ~ 13:00)" + "', '숙제 없음', '" + dateFormat.format(cal.getTime()) + "', '숙제 없음')";
         try {
             DBManager.getInstance().write(query);
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        query = "INSERT INTO schedule (title, time, date, context)" + "VALUES('" + "과학 보강 (13:00 ~ 15:00)" + "', 'ㅠㅠㅠㅠㅠ', '" + dateFormat.format(cal.getTime()) + "', 'ㅠㅠㅠㅠ')";
+        try {
+            DBManager.getInstance().write(query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        cal.set(Calendar.MONTH, Calendar.DECEMBER);
+        cal.set(Calendar.DATE, 12);
+         query = "INSERT INTO schedule (title, time, date, context)" + "VALUES('" + "과학 수업 (11:30 ~ 13:00)" + "', 'p130~p140', '" + dateFormat.format(cal.getTime()) + "', 'p130~p140')";
+        try {
+            DBManager.getInstance().write(query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        cal.set(Calendar.MONTH, Calendar.DECEMBER);
+        cal.set(Calendar.DATE, 15);
+         query = "INSERT INTO schedule (title, time, date, context)" + "VALUES('" + "과학 수업 (11:30 ~ 13:00)" + "', 'ㅎㅎ..', '" + dateFormat.format(cal.getTime()) + "', 'ㅎㅎ..')";
+        try {
+            DBManager.getInstance().write(query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        query = "INSERT INTO schedule (title, time, date, context)" + "VALUES('" + "과학 보강 (13:00 ~ 15:00)" + "', 'ㅠㅠㅠㅠㅠ', '" + dateFormat.format(cal.getTime()) + "', 'ㅠㅠㅠㅠㅠ')";
+        try {
+            DBManager.getInstance().write(query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        cal.set(Calendar.MONTH, Calendar.DECEMBER);
+        cal.set(Calendar.DATE, 17);
+            query = "INSERT INTO schedule (title, time, date, context)" + "VALUES('" + "과학 수업 (11:30 ~ 13:00)" + "', '', '" + dateFormat.format(cal.getTime()) + "', '오늘도 힘든 하루를...')";
+        try {
+            DBManager.getInstance().write(query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        //fab.setBackgroundColor(Color.RED);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ScheduleaddFragment dialog = new ScheduleaddFragment(MainActivity.this);
+                android.app.FragmentManager fm = getFragmentManager();
+                dialog.show(fm, "fm");
+            }
+        });
+
 
 
     }

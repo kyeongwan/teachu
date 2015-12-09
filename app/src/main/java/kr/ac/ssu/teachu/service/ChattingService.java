@@ -192,7 +192,7 @@ public class ChattingService extends Service implements View.OnClickListener{
                         String nickname = body.getString("sender_nick");
 
                         final String data = bodyType + "/&" + nickname + "/&" + msg;
-                        if (("to.channel." + channelId).equals(address))
+                        if (("to.channel." + channelId).equals(address) && bodyType.equals("normal"))
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {

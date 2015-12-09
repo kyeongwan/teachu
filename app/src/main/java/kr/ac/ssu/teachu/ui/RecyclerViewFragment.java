@@ -256,8 +256,6 @@ public class RecyclerViewFragment extends Fragment {
                         "또한 EBS 수능 교재를 학습하는 과정에서 추론 능력·사고력 등이 길러지므로 상위권 변별을 위해 출제된 고난도 문항에 대한 대비도 할 수 있다. 단, EBS 수능 교재를 풀기 전에 교과서의 개념들에 대한 이해가 선행되어야 하며 상위권 학생들은 EBS 수능 교재 외에 다른 교재도 함께 풀어보는 노력이 필요하겠다. \n", "http://www.yeongnam.com/Photo/2015/11/30/L20151130.010160756070001i1.jpg"));
             }
 
-
-
         }
         if (position == 0) {
             mAdapter = new RecyclerViewMaterialAdapter(new ScheduleAdapter(mScheduleItems, getActivity()));
@@ -266,7 +264,7 @@ public class RecyclerViewFragment extends Fragment {
             mAdapter = new RecyclerViewMaterialAdapter(new Notice_adapter(mContentItems, getActivity()));
             mRecyclerView.setAdapter(mAdapter);
         } else {
-            mAdapter = new RecyclerViewMaterialAdapter(new TestRecyclerViewAdapter(mContentItems, getActivity().getApplicationContext()));
+            mAdapter = new RecyclerViewMaterialAdapter(new TestRecyclerViewAdapter(mContentItems, getActivity()));
             mRecyclerView.setAdapter(mAdapter);
         }
 
