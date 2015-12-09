@@ -179,7 +179,7 @@ public class MainActivity extends AppCompatActivity implements ehlMainFragment.O
                     case 0:
                         return HeaderDesign.fromColorResAndDrawable(
                                 R.color.colorPrimary,
-                                ContextCompat.getDrawable(getBaseContext(), R.drawable.schedule3));
+                                ContextCompat.getDrawable(getBaseContext(), R.drawable.schedule4));
                     case 1:
                         return HeaderDesign.fromColorResAndDrawable(
                                 R.color.colorPrimary,
@@ -187,7 +187,7 @@ public class MainActivity extends AppCompatActivity implements ehlMainFragment.O
                     case 2:
                         return HeaderDesign.fromColorResAndDrawable(
                                 R.color.colorPrimary,
-                                ContextCompat.getDrawable(getBaseContext(), R.drawable.news3));
+                                ContextCompat.getDrawable(getBaseContext(), R.drawable.news4));
                 }
                 return null;
             }
