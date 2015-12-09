@@ -69,15 +69,11 @@ public class DrawLine extends View {
 
                 if (dx >= 4 || dy <= 4) {
                     path.quadTo(x, y, px, py);
-
+                    JSONObject obj = send((x / (float) w) + "/" + (y / (float) h) + "/" + (px / (float) w) + "/" + (py / (float) h));
                     x = px;
                     y = py;
-                    Log.i("fff", x + "");
-                    JSONObject obj = send((x / (float) w) + "/" + (y / (float) h) + "/" + (px / (float) w) + "/" + (py / (float) h));
 
                     sockJS.send(obj);
-
-
                     canvas.drawPath(path, paint);
                 }
                 invalidate();
@@ -94,6 +90,8 @@ public class DrawLine extends View {
         float py = pyp * h;
         float dx = Math.abs(px - x);
         float dy = Math.abs(py - y);
+//        path.reset();
+        path.moveTo(x, y);
 
         path.quadTo(x, y, px, py);
         canvas.drawPath(path, paint);
@@ -128,7 +126,7 @@ public class DrawLine extends View {
             body.put("type", "draw");
             body.put("channel_id", channel_id);
             body.put("sender_id", "username");
-            body.put("sender_nick", "username" + "&&" + "#ffffff");
+            body.put("sender_nick", sockJS.nickname + "&&" + "#ffffff");
             body.put("app_id", "com.aaa.aaa");
             body.put("msg", msg);
             obj.put("body", body);

@@ -1,6 +1,7 @@
 package kr.ac.ssu.teachu.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.os.Bundle;
@@ -28,6 +29,7 @@ public class DrawActivity extends AppCompatActivity {
 
     private DrawLine drawLine;
     private SockJSImpl sockJS;
+    private String email;
     private String channelId = "42f34b4143d7762b1d604c1f03036f7725d75798d44c461724d4a65e9cac8f79";
 
     @Override
@@ -37,6 +39,9 @@ public class DrawActivity extends AppCompatActivity {
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN, WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
                 setContentView(R.layout.activity_canvas);
+
+        SharedPreferences pref = getSharedPreferences("app", MODE_PRIVATE);
+        email = pref.getString("email", "");
         /*
         ListView list=(ListView)findViewById(android.R.id.list);
         list.setAdapter(adapter);
@@ -68,7 +73,7 @@ public class DrawActivity extends AppCompatActivity {
 
     private void connectSockJS() {
         try {
-            sockJS = new SockJSImpl("http://133.130.113.101:7030/eventbus", channelId,"aaa","ttt") {
+            sockJS = new SockJSImpl("http://133.130.113.101:7030/eventbus", channelId,email,"ttt") {
                 //channel_
                 @Override
                 public void parseSockJS(String s) {
@@ -88,12 +93,11 @@ public class DrawActivity extends AppCompatActivity {
                         final JSONObject body = new JSONObject(json.getString("body"));
                         String bodyType = body.getString("type");
                         final String msg = body.getString("msg");
-                        String nickname = body.getString("sender_nick");
+                        String nickname = body.getString("sender_nick").replace("&&#ffffff","");
                         Date myDate = new Date();
                         SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd. HH:mm");
                         String date = sdf.format(myDate);
-                        final String data =  bodyType + "/&" +nickname + "/&" + msg + "/&" + date;
-                        if (("to.channel."+ channelId).equals(address) && bodyType.equals("draw"))
+                        if (("to.channel."+ channelId).equals(address) && bodyType.equals("draw") && (!nickname.equals(email)))
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
